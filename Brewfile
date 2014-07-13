@@ -35,7 +35,7 @@ cask install iterm2
 cask install kobito
 cask install alfred
 cask install bettertouchtool
-cask install KeyRemap4MacBook
+cask install keyremap4macbook
 cask install github
 cask install libreoffice
 cask install iterm2

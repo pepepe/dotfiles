@@ -3,7 +3,7 @@
 #export PATH=$PLAY_HOME:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if which anyenv > /dev/null; then eval "$(anyenv init -)"; fi
 
 export PATH=/usr/local/bin:$PATH
 

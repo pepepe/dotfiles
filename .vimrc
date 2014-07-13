@@ -8,7 +8,7 @@ set showcmd "入力中のコマンドをステータスに表示する
 set showmatch "括弧入力時の対応する括弧を表示
 set laststatus=2 "ステータスラインを常に表示
 
-set backupdir=~/.vim/backups
+set backupdir=~/.vim/backup
 set undodir=~/.vim/undo
 
 set clipboard=unnamed,autoselect
@@ -37,7 +37,7 @@ if has('gui_macvim')
     set visualbell t_vb= " ビープ音なし
 
     set transparency=3
-    set lines=90 columns=200
+    set lines=50 columns=130
 
     set guifontwide=Osaka:h12
     set guifont=Osaka-Mono:h14
