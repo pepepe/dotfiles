@@ -4,6 +4,7 @@ upgrade
 tap homebrew/versions
 tap phinze/homebrew-cask
 tap homebrew/binary
+tap peco/peco
 
 install brew-cask
 install zsh
@@ -14,6 +15,12 @@ install wget
 install curl
 install jq
 install vim
+install go
+install peco
+
+# haskell
+install ghc
+install cabal-install
 
 # macvimを入れる
 tap supermomonga/homebrew-splhack
@@ -43,5 +50,8 @@ cask install google-japanese-ime
 cask install the-unarchiver
 cask install istat-menus
 cask install bartender
+cask install dash
+cask install sourcetree
 
 cask alfred link
+

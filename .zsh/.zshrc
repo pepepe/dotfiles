@@ -6,4 +6,9 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 if which anyenv > /dev/null; then eval "$(anyenv init -)"; fi
 
 export PATH=/usr/local/bin:$PATH
+export PATH=~/.cabal/bin:$PATH
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:$HOME/.go/bin
+
 
