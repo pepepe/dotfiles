@@ -22,6 +22,8 @@ install peco
 install ghc
 install cabal-install
 
+install reattach-to-user-namespace
+
 # macvimを入れる
 tap supermomonga/homebrew-splhack
 install cscope

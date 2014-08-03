@@ -149,11 +149,8 @@ NeoBundle 'ujihisa/ref-hoogle'
 " surround
 NeoBundle 'tpope/vim-surround'
 
-
-
 " dash
 NeoBundle 'rizzatti/dash.vim'
 
 NeoBundleCheck
-
 
