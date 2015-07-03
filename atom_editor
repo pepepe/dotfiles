@@ -1,0 +1,21 @@
+apm install project-manager
+apm install jumpy
+
+apm install linter
+apm install linter-tidy
+apm install linter-erb
+apm install linter-rubocop
+apm install linter-ruby
+apm install linter-coffeelint
+apm install linter-csslint
+apm install linter-scss-lint
+
+apm install autocomplete-plus
+apm install autocomplete-paths
+apm install autocomplete-snippets
+apm install atom-beautify
+
+apm install tabs-to-spaces
+apm install highlight-column
+apm install atom-color-highlight
+apm install script

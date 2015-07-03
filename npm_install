@@ -1,0 +1,12 @@
+npm install yo bower grunt-cli -g
+npm install -g yo grunt-cli bower
+npm install -g generator-angular
+
+npm install express-generator -g
+npm install mongodb
+
+npm install express-jwt
+npm install jsonwebtoken
+
+npm install -g ect
+

@@ -34,26 +34,26 @@ set incsearch "検索文字列入力時に順次対象文字列にヒットさ�
 set hlsearch "検索結果文字列の非ハイライト表示
 
 if has('gui_macvim')
-  if has('gui_running')
-    set showtabline=2    " タブを常に表示
-    set transparency=5   " 透明度
-    set guioptions-=T    " ツールバー非表示
-    set antialias        " アンチエイリアス
-    set tabstop=4        " タブサイズ
-    set visualbell t_vb= " ビープ音なし
+    if has('gui_running')
+        set showtabline=2    " タブを常に表示
+        set transparency=5   " 透明度
+        set guioptions-=T    " ツールバー非表示
+        set antialias        " アンチエイリアス
+        set tabstop=4        " タブサイズ
+        set visualbell t_vb= " ビープ音なし
 
-    set transparency=3
-    set lines=50 columns=130
+        set transparency=3
+        set lines=50 columns=130
 
-    set guifontwide=Osaka:h12
-    set guifont=Osaka-Mono:h14
-  endif
+        set guifontwide=Osaka:h12
+        set guifont=Osaka-Mono:h14
+    endif
 endif
 
 set nocompatible
 if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-  call neobundle#rc(expand('~/.vim/bundle'))
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -69,7 +69,7 @@ nnoremap <silent> ,uy :<C-u>Unite history/yank<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
-nnoremap <silent> ,uu :<C-u>Unite file_mru buffer<CR>
+nnoremap <silent> ,uu :<C-u>Unite file_mru buffer bookmark<CR>
 nnoremap <silent> ,ul :<C-u>Unite line<CR>
 
 NeoBundle 'Shougo/vimfiler.vim'
@@ -77,6 +77,9 @@ nnoremap <silent> ,vf :<C-u>VimFiler<CR>
 let g:vimfiler_trashbox_directory = "~/.vim/filer_trash"
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
+
+NeoBundle 'Shougo/neomru.vim'
+
 
 " インデントに色付け
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -87,13 +90,13 @@ let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 
 NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+            \ 'build' : {
+            \     'windows' : 'tools\\update-dll-mingw',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \    },
+            \ }
 
 " 補完
 NeoBundle 'Shougo/neocomplcache'
@@ -109,8 +112,8 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : ''
-    \ }
+            \ 'default' : ''
+            \ }
 
 " Plugin key-mappings.
 inoremap <expr><C-g>     neocomplcache#undo_completion()
@@ -120,7 +123,7 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplcache#smart_close_popup() . "\<CR>"
+    return neocomplcache#smart_close_popup() . "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -152,5 +155,36 @@ NeoBundle 'tpope/vim-surround'
 " dash
 NeoBundle 'rizzatti/dash.vim'
 
+" scala
+NeoBundle 'derekwyatt/vim-scala'
+
+" go-lang
+" NeoBundle 'faith/vim-go'
+
+" coffee
+NeoBundle 'kchmck/vim-coffee-script'
+" vimにcoffeeファイルタイプを認識させる
+au BufRead,BufNewFile,BufReadPre *.coffee   set filetype=coffee
+" " インデント設定
+autocmd FileType coffee    setlocal sw=2 sts=2 ts=2 et
+" オートコンパイル
+"保存と同時にコンパイルする
+autocmd BufWritePost *.coffee silent make! 
+"エラーがあったら別ウィンドウで表示
+autocmd QuickFixCmdPost * nested cwindow | redraw! 
+" Ctrl-cで右ウィンドウにコンパイル結果を一時表示する
+nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
+
+
+" rails
+NeoBundle 'tpope/vim-rails'
+" 勝手にendを入れてくれる
+NeoBundle 'tpope/vim-endwise'
+
+" コメント入れ替え
+NeoBundle 'tomtom/tcomment_vim'
+
+
 NeoBundleCheck
+
 
